@@ -7,6 +7,14 @@
   box-sizing: border-box;
 }
 
+/* global vars */
+:root {
+  --bg: #fff;
+  --text: #000;
+  --hover-light: #eee;
+  --hover-dark: #333;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }

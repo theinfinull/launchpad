@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/fear-logo");
+@import url("https://fonts.cdnfonts.com/css/charriot-deluxe");
 
 .header {
   position: fixed;
@@ -9,28 +9,38 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--hover-light);
+  box-shadow: 0 2px 2rem rgba(0, 0, 0, 0.1);
 }
 
 /* left */
 .header .left {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .header .left img {
   height: 2rem;
-  margin-right: 1rem;
-  filter: drop-shadow(
+  margin-right: 0.75rem;
+  /* filter: drop-shadow(
     5px 5px 10px rgba(0, 0, 0, 0.2)
-  ); /* Adjust values as needed */
+  ); // Adjust values as needed */
+  /* filter: drop-shadow( */
+  /* -2px 0px 3px rgba(0, 0, 0, 0.2) */
+  /* ); Adjust values as needed */
 }
 
 .header .left span {
-  padding-top: 0.25rem;
-  font-size: 1.5rem;
-  font-family: "FEAR Logo", sans-serif;
+  font-size: 1.625rem;
+  font-weight: bolder;
+  /* margin-top: 0.25rem; */
+  /* letter-spacing: 2px; */
+  /* font-family: "Tiny BoxBitA10", sans-serif; */
+  /* font-family: "Tiny Box BlackBitA8", sans-serif; */
+  /* font-family: "Tiny Box CollageBitA12", sans-serif; */
+  font-family: "Charriot Deluxe", sans-serif;
 }
 
 /* right */
@@ -41,17 +51,34 @@
 }
 
 .header .right a {
-  background-color: black;
-  color: white;
-  padding: 0.5rem 1rem;
+  background-color: var(--text);
+  color: var(--bg);
+  font-size: 1.125rem;
+  padding: 0.125rem 0.75rem;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: border-radius 0.2s ease-in-out;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .header .right a:hover {
-  background-color: #0095ff;
-  border-radius: 3rem;
+  background-color: var(--hover-dark);
+}
+
+.header .right a:first-child {
+  background-color: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--hover-light);
+}
+
+.header .right a:first-child:hover {
+  background-color: var(--hover-light);
+}
+
+/* responsive */
+
+@media (width <= 470px) {
+  .header .left span {
+    display: none;
+  }
 }
