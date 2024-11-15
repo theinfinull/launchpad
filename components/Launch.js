@@ -73,12 +73,15 @@ export default {
     launchUrls(urls) {
       // Open URLs in a new tab. Ensure that the URL is prefixed with 'https://' if not already provided.
       urls.forEach((encodedUrl) => {
+        if (encodedUrl == "") return;
         const decodedUrl = decodeURIComponent(encodedUrl); // Decode URL before opening
         const validUrl = decodedUrl.includes("://")
           ? decodedUrl
           : `https://${decodedUrl}`;
+        console.log("Opening :" + validUrl);
         window.open(validUrl, "_blank");
       });
+      console.log("Done!");
     },
   },
 };
