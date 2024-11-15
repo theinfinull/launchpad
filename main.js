@@ -16,8 +16,8 @@ const routes = [
 
 // Create Vue Router instance
 const router = VueRouter.createRouter({
-  // history: VueRouter.createWebHashHistory(),
-  history: VueRouter.createWebHistory(),
+  history: VueRouter.createWebHashHistory(),
+  // history: VueRouter.createWebHistory(),
   routes,
 });
 

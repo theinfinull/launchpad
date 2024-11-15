@@ -8,7 +8,7 @@ export default {
         <div class="right">
             <router-link v-if="$route.path !== '/'" to="/">Home</router-link>
             <router-link v-if="$route.path !== '/docs'" to="/docs">Docs</router-link>
-            <router-link v-if="$route.path !== '/launch'" to="/launch">Launch</router-link>
+            <router-link v-if="$route.path !== '/launch' && $route.path !== '/404'" to="/launch">Launch</router-link> 
         </div>
     </div>
     `,

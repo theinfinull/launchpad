@@ -26,7 +26,7 @@ export default {
 
       <!-- POST Request Launch Button -->
       <h1 v-if="isPostRequest && !isURLArray">No URLs found (or) Error Parsing URLs 🚫!</h1>
-      <p v-if="isPostRequest && !isURLArray">Kindly refer docs & check console!</p>
+      <p v-if="isPostRequest && !isURLArray">Kindly refer docs & check console for error details!</p>
       <h1 v-if="isPostRequest && urls.length > 0">URLs Ready to take off 🚀!</h1>
       <div v-if="isPostRequest && urls.length > 0" class="button-container">
         <ul class="url-list">

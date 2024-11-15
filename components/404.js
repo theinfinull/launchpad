@@ -1,7 +1,13 @@
+import header from "./Header.js";
+import footer from "./Footer.js";
+
 export default {
   template: `
-        <div class="docs">
-            <h1>404</h1>
+        ${header.template}
+        <div class="err404">
+            <h1>Oops! Page Not Found</h1>
+            <p>Go back to <router-link to="/">Home</router-link></p>
         </div>
+        ${footer.template}
         `,
 };

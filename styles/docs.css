@@ -1,0 +1,173 @@
+.docs {
+  padding-top: 6rem;
+  padding-inline: 0;
+  margin-left: 2.5rem;
+  max-width: min(740px, 90vw);
+  line-height: 1.6;
+}
+
+.docs h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+  text-align: start;
+}
+
+.docs h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.docs h3,
+.docs h4 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.docs p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.docs ol,
+.docs ul {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.docs ol li,
+.docs ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.docs ul {
+  list-style-type: disc;
+}
+
+.docs pre {
+  background-color: #f4f4f4;
+  border-left: 4px solid #3498db;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.docs code {
+  background-color: #f4f4f4;
+  padding: 0.2rem 0.4rem;
+  font-family: monospace;
+  font-size: 0.95rem;
+  border-radius: 3px;
+  color: #e74c3c;
+}
+
+.docs hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2rem 0;
+}
+
+.docs .highlight {
+  background-color: #f9f9f9;
+  border: 1px dashed #dcdcdc;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
+.docs section {
+  margin-bottom: 2rem;
+}
+
+.docs .faq h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.docs .faq p {
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+
+.docs .permissions-img {
+  display: block;
+  margin: 1rem 0;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.docs ol {
+  list-style: decimal inside;
+}
+
+.docs a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.docs a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .docs {
+    margin-left: 1rem;
+    padding-top: 5rem;
+  }
+
+  .docs h1 {
+    font-size: 2rem;
+  }
+
+  .docs h2 {
+    font-size: 1.8rem;
+  }
+
+  .docs pre {
+    font-size: 0.85rem;
+  }
+}
+
+/* docs bottom */
+
+.docs-bottom {
+  padding-top: 50vh;
+  padding-bottom: 4rem;
+  margin-left: 2.5rem;
+  line-height: 1.2;
+}
+
+.docs-bottom p {
+  text-align: center;
+  color: #aaa;
+}
+
+@media screen and (max-width: 768px) {
+  .docs-bottom {
+    margin-left: 1rem;
+  }
+
+  .docs h1 {
+    font-size: 2rem;
+  }
+
+  .docs h2 {
+    font-size: 1.8rem;
+  }
+
+  .docs pre {
+    font-size: 0.85rem;
+  }
+}
