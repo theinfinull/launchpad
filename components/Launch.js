@@ -6,6 +6,7 @@ export default {
     return {
       urls: [],
       isPostRequest: false,
+      isURLArray: true,
       urlInput: "", // for GET form input
       placeHolder:
         "Paste your URLs here (comma-separated) to launch them.\ne.g. https://example1.com, https://example2.com",
@@ -24,7 +25,8 @@ export default {
       </div>
 
       <!-- POST Request Launch Button -->
-      <h1 v-if="isPostRequest && urls.length === 0">No URLs found (or) Error Parsing URLs 🚫!</h1>
+      <h1 v-if="isPostRequest && !isURLArray">No URLs found (or) Error Parsing URLs 🚫!</h1>
+      <p v-if="isPostRequest && !isURLArray">Kindly refer docs & check console!</p>
       <h1 v-if="isPostRequest && urls.length > 0">URLs Ready to take off 🚀!</h1>
       <div v-if="isPostRequest && urls.length > 0" class="button-container">
         <ul class="url-list">
@@ -43,42 +45,46 @@ export default {
     if (this.$route.query.post === "true") {
       this.isPostRequest = true;
       try {
-        const urlsQuery = this.$route.query.urls
-          ? decodeURIComponent(this.$route.query.urls) // Decode query parameters
-          : "[]"; // Default to empty array if not found
-        this.urls = JSON.parse(urlsQuery); // Parse the decoded JSON string
-        this.visibleUrls = this.urls.slice(0, 3); // Show first 3 URLs
-        this.hiddenCount = this.urls.length - this.visibleUrls.length; // Calculate the hidden URLs
+        // Safely extract and decode URLs
+        const rawUrls = this.$route.query.urls || "[]"; // Default to empty JSON array if not found
+        const decodedUrls = JSON.parse(decodeURIComponent(rawUrls)); // Decode once and parse as JSON
+
+        if (Array.isArray(decodedUrls)) {
+          this.urls = decodedUrls;
+          this.visibleUrls = this.urls.slice(0, 3); // Show first 3 URLs
+          this.hiddenCount = this.urls.length - this.visibleUrls.length; // Calculate hidden count
+        } else {
+          throw new Error("URLs parameter is not an array. Refer Docs.");
+        }
       } catch (error) {
+        this.isURLArray = false;
         console.error("Error parsing URLs:", error);
       }
     }
   },
   methods: {
     handleGet() {
-      // Split & Trim the URLs, then encode them before passing them around
       const urls = this.urlInput
         .split(",")
         .map((url) => url.trim())
-        .map((url) => encodeURIComponent(url));
+        .filter((url) => url); // Remove empty strings
       this.launchUrls(urls);
     },
 
     handlePost() {
-      // Just Trim and encode the URLs
-      const urls = this.urls.map((url) => encodeURIComponent(url.trim()));
+      const urls = this.urls.map((url) => url.trim()).filter((url) => url); // Remove empty strings
       this.launchUrls(urls);
     },
 
     launchUrls(urls) {
       // Open URLs in a new tab. Ensure that the URL is prefixed with 'https://' if not already provided.
-      urls.forEach((encodedUrl) => {
-        if (encodedUrl == "") return;
-        const decodedUrl = decodeURIComponent(encodedUrl); // Decode URL before opening
+      urls.forEach((url) => {
+        if (!url) return; // Skip empty URLs
+        const decodedUrl = decodeURIComponent(url); // Decode once
         const validUrl = decodedUrl.includes("://")
           ? decodedUrl
           : `https://${decodedUrl}`;
-        console.log("Opening :" + validUrl);
+        console.log("Opening:", validUrl);
         window.open(validUrl, "_blank");
       });
       console.log("Done!");
