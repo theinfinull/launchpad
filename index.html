@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launch Pad</title>
+    <!-- Development -->
+    <!-- Use development version of Vue 3 -->
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <!-- Use development version of Vue Router -->
+    <!-- <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script> -->
+    <!-- Production -->
+    <!-- Use production version of Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <!-- Use production version of Vue Router -->
+    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png" />
+    <!-- styles -->
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/launch.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <!-- To handle routing -->
+    <base href="/" />
+  </head>
+  <body>
+    <div id="app">
+      <background-canvas>
+        <router-view></router-view>
+      </background-canvas>
+    </div>
+    <!-- Main script -->
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
