@@ -1,7 +1,6 @@
 .docs {
   padding-top: 6rem;
   padding-inline: 0;
-  /* margin-left: 2.5rem; */
   max-width: min(740px, 90vw);
   line-height: 1.6;
 }
@@ -123,7 +122,6 @@
 
 @media screen and (max-width: 768px) {
   .docs {
-    /* margin-left: 1rem; */
     padding-top: 5rem;
   }
 
@@ -145,7 +143,6 @@
 .docs-bottom {
   padding-top: 50vh;
   padding-bottom: 4rem;
-  /* margin-left: 2.5rem; */
   line-height: 1.2;
 }
 
@@ -155,10 +152,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .docs-bottom {
-    /* margin-left: 1rem; */
-  }
-
   .docs h1 {
     font-size: 2rem;
   }

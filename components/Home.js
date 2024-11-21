@@ -1,10 +1,13 @@
 import header from "./Header.js";
-import footer from "./Footer.js";
 
 export default {
   template: `
     ${header.template}
     <div class="home">
+      <!-- LOADER -->
+      <div class="loader-container">
+        <div class="loader"></div>
+      </div>
       <!-- SPLINE CONTENT -->
       <spline-viewer url="https://prod.spline.design/qS0vegZw36uSv7Da/scene.splinecode"></spline-viewer>
       <!-- spline hider -->
