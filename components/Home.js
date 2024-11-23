@@ -1,5 +1,6 @@
 import header from "./Header.js";
 import footer from "./Footer.js";
+import features from "./FeatureSection.js";
 
 export default {
   template: `
@@ -23,29 +24,14 @@ export default {
         <a href="#first_heading" class="direction">Scroll Down ↘</a>
       </div>
       <!-- PAGE CONTENT -->
-      <h1 id="first_heading">Open Multiple URLs with a single click!</h1>
-      <!-- Page content continues... -->
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
-      <h2 >Open Multiple URLs with a single click!</h2>
+      <section class="hero">
+        <h1 id="first_heading">Open Multiple URLs with a single click!</h1>
+        <p class="para">LaunchPad is a free tool that allows you to launch multiple URLs in one click. Just copy and paste the URLs into the text box, and click "Launch". Made exclusively for Zoho Cliq!</p>
+      </section>
+      <hr>
+      <!-- Sections... -->
+      ${features.template}
+      <hr>
     </div>
     ${footer.template}
   `,

@@ -111,3 +111,34 @@ spline-viewer {
     inset: 0 35px 35px 0;
   }
 }
+
+/* hero section */
+.hero {
+  margin-bottom: 3rem;
+  translate: 0 -4rem;
+  max-width: 1440px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero h1 {
+  padding-top: 1.5rem;
+}
+
+/* para */
+.para {
+  font-size: 1.5rem;
+  color: #888;
+  font-weight: 600;
+  margin-inline: 2rem;
+  text-wrap: pretty;
+}
+
+/* hr */
+.home hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2rem 0;
+  width: 60vw;
+  margin-bottom: 8rem;
+}
