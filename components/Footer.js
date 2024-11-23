@@ -13,9 +13,4 @@ export default {
         </a>
     </div>
     `,
-  methods: {
-    openUrl(url) {
-      window.open(url, "_blank");
-    },
-  },
 };

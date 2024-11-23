@@ -44,3 +44,11 @@
     font-size: 1rem;
   }
 }
+
+/* home footer */
+.home ~ .footer {
+  position: static;
+  margin-block: 1rem 0.5rem;
+  margin-inline: 0.25rem;
+  justify-content: right;
+}

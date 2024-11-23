@@ -1,4 +1,5 @@
 import header from "./Header.js";
+import footer from "./Footer.js";
 
 export default {
   template: `
@@ -20,6 +21,7 @@ export default {
       <!-- PAGE CONTENT -->
       <h1>Open Multiple URLs with a single click!</h1>
     </div>
+    ${footer.template}
   `,
 
   mounted() {
