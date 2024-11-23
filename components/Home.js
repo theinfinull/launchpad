@@ -106,11 +106,9 @@ export default {
             if (entry.isIntersecting) {
               // Fully in view (intersectionRatio >= 1)
               this.splineViewer.style.opacity = 1;
-              console.log("Spline in view!");
             } else if (entry.intersectionRatio === 0) {
               // Fully out of view (intersectionRatio === 0)
               this.splineViewer.style.opacity = 0;
-              console.log("Spline hidden!");
             }
           });
         },
