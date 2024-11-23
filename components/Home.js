@@ -10,46 +10,72 @@ export default {
         <div class="loader"></div>
       </div>
       <!-- SPLINE CONTENT -->
-      <spline-viewer url="https://prod.spline.design/qS0vegZw36uSv7Da/scene.splinecode"></spline-viewer>
+      <div ref="splineContainer" class="spline-container">
+        <spline-viewer
+          ref="splineViewer"
+          url="https://prod.spline.design/qS0vegZw36uSv7Da/scene.splinecode"
+        ></spline-viewer>
+      </div>
       <!-- spline hider -->
       <div class="spline-overlay"></div>
       <div class="spline-hider0"></div>
       <div class="spline-hider1">
-        <div class="direction">Scroll Down ↘</div>
+        <a href="#first_heading" class="direction">Scroll Down ↘</a>
       </div>
-      <!-- SPLINE CONTENT ENDS -->
       <!-- PAGE CONTENT -->
-      <h1>Open Multiple URLs with a single click!</h1>
+      <h1 id="first_heading">Open Multiple URLs with a single click!</h1>
+      <!-- Page content continues... -->
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
+      <h2 >Open Multiple URLs with a single click!</h2>
     </div>
     ${footer.template}
   `,
 
   mounted() {
     this.initHideHeader(); // Mount the scroll logic
+    this.initSplineVisibility(); // Monitor spline visibility
   },
 
   unmounted() {
-    this.cleanupHideHeader(); // Remove the scroll listener on unmount
+    this.cleanupHideHeader(); // Remove scroll listener
+    this.cleanupSplineVisibility(); // Cleanup observer
   },
 
   methods: {
+    // HEADER CODE
     initHideHeader() {
       this.lastScrollTop = 0;
       this.header = document.querySelector(".header");
 
-      // Ensure the header element exists
       if (!this.header) {
         console.error("ERR: Header Not Found!");
         return;
       }
 
-      // Bind the scroll event listener
       this.scrollHandler = this.onScroll.bind(this); // Save reference to allow removal
       window.addEventListener("scroll", this.scrollHandler);
     },
 
     cleanupHideHeader() {
-      // Remove the scroll event listener
       if (this.scrollHandler) {
         window.removeEventListener("scroll", this.scrollHandler);
       }
@@ -57,16 +83,49 @@ export default {
 
     onScroll() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      // Add or remove the "hide" class based on scroll direction
       if (scrollTop > this.lastScrollTop) {
         this.header.classList.add("hide");
       } else {
         this.header.classList.remove("hide");
       }
-
-      // Update the last scroll position
       this.lastScrollTop = scrollTop;
+    },
+
+    // SPLINE CODE
+    initSplineVisibility() {
+      this.splineViewer = this.$refs.splineViewer;
+
+      if (!this.splineViewer) {
+        console.error("ERR: Spline elements not found!");
+        return;
+      }
+
+      this.splineObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Fully in view (intersectionRatio >= 1)
+              this.splineViewer.style.opacity = 1;
+              console.log("Spline in view!");
+            } else if (entry.intersectionRatio === 0) {
+              // Fully out of view (intersectionRatio === 0)
+              this.splineViewer.style.opacity = 0;
+              console.log("Spline hidden!");
+            }
+          });
+        },
+        {
+          root: null, // Observe within the viewport
+          threshold: [0, 1], // Trigger when fully visible (1) and fully out (0)
+        }
+      );
+      this.splineObserver.observe(this.splineViewer);
+    },
+
+    cleanupSplineVisibility() {
+      if (this.splineObserver) {
+        this.splineObserver.disconnect();
+      }
     },
   },
 };
