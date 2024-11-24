@@ -77,16 +77,29 @@ export default {
     },
 
     launchUrls(urls) {
-      // Open URLs in a new tab. Ensure that the URL is prefixed with 'https://' if not already provided.
+      let popUpBlocked = false;
+
       urls.forEach((url) => {
         if (!url) return; // Skip empty URLs
+
         const decodedUrl = decodeURIComponent(url); // Decode once
         const validUrl = decodedUrl.includes("://")
           ? decodedUrl
           : `https://${decodedUrl}`;
         console.log("Opening:", validUrl);
-        window.open(validUrl, "_blank");
+
+        const newWindow = window.open(validUrl, "_blank");
+        if (!newWindow) {
+          popUpBlocked = true; // If pop-up is blocked, mark as blocked
+        }
       });
+
+      if (popUpBlocked) {
+        window.alert(
+          "Make sure to enable pop-ups! Or else it won't work.\nRefer Docs for more info."
+        );
+      }
+
       console.log("Done!");
     },
   },
