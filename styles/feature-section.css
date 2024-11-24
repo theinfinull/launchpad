@@ -6,7 +6,7 @@
 }
 
 /* bottom cards */
-.bottom {
+.feature-section .bottom {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-block: 2rem;
@@ -14,32 +14,41 @@
   gap: 2rem;
 }
 
-.bottom img {
+.feature-section .bottom img {
   width: 100px;
   height: 100px;
   margin-bottom: 1rem;
 }
 
 /* features */
-.feature {
+.feature-section .feature {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
   padding-bottom: 2.5rem;
   background-color: #f8f8f8;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   margin-block: 1rem;
-  border-radius: 8px;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  border-radius: 4px;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+
+  img {
+    transition: filter 0.2s ease-in-out;
+  }
 }
 
-.feature:hover {
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+.feature-section .feature:hover {
+  background-color: var(--text);
+  color: var(--bg);
   transform: translateY(-1rem);
+
+  img {
+    filter: invert(100%) brightness(200%);
+  }
 }
 
-.feature p {
+.feature-section .feature p {
   margin-top: 1rem;
   font-size: 1.25rem;
   color: #888;
@@ -47,11 +56,11 @@
 
 /* responsive */
 @media (width <= 1024px) {
-  .bottom {
+  .feature-section .bottom {
     grid-template-columns: 1fr;
   }
 
-  .feature {
+  .feature-section .feature {
     max-width: 320px;
     padding: 0.5rem;
     padding-bottom: 1.5rem;

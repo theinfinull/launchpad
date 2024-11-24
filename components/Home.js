@@ -1,6 +1,7 @@
 import header from "./Header.js";
 import footer from "./Footer.js";
 import features from "./FeatureSection.js";
+import img_section from "./ImgSection.js";
 
 export default {
   template: `
@@ -32,6 +33,8 @@ export default {
       <!-- Sections... -->
       ${features.template}
       <hr>
+      ${img_section.template}
+      <hr class="hrfinal">
     </div>
     ${footer.template}
   `,
