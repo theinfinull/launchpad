@@ -2,6 +2,7 @@ import header from "./Header.js";
 import footer from "./Footer.js";
 import features from "./FeatureSection.js";
 import img_section from "./ImgSection.js";
+import pin_section from "./PinSection.js";
 
 export default {
   template: `
@@ -29,6 +30,7 @@ export default {
         <h1 id="first_heading">Open Multiple URLs with a single click!</h1>
         <p class="para">LaunchPad is a free tool that allows you to launch multiple URLs in one click. Just copy and paste the URLs into the text box, and click "Launch". Made exclusively for Zoho Cliq!</p>
       </section>
+      ${pin_section.template}
       <hr>
       <!-- Sections... -->
       ${features.template}

@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+.pin-section {
+  position: relative;
+  text-align: center;
+  margin-inline: auto;
+  display: block;
+  margin-bottom: 6rem;
+}
+
+.pin {
+  position: absolute;
+  top: -10px;
+  translate: -50% -50%;
+  width: 60px;
+}
+
+.pin-section .card {
+  background-color: #f8f8f8;
+  padding: 2rem 6rem;
+  border-radius: 4px;
+  display: block;
+  transform: rotate(-2deg);
+}
+
+.pin-section .quote-main,
+.pin-section .quote-sub,
+.pin-section .quote-final {
+  font-family: "Abril Fatface", serif;
+  font-family: "Space Mono", monospace;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.pin-section .quote-main {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.pin-section .quote-sub {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+  line-height: 1.75rem;
+}
+
+.pin-section .quote-final {
+  font-size: 1rem;
+  margin-top: 1.25rem;
+  color: var(--bg);
+  padding: 0.5rem 1.5rem;
+  border-radius: 3rem;
+  display: inline-block;
+  background-color: black;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.pin-section .quote-final:hover {
+  background-color: var(--hover-dark);
+}
+
+.pin-section .quote,
+.pin-section .unquote {
+  font-size: 2rem;
+  color: var(--text);
+}
+
+/* Responsiveness */
+@media (width <= 1024px) {
+  .pin-section .card {
+    padding: 2rem 4rem;
+  }
+
+  .pin-section .quote-main {
+    font-size: 1.75rem;
+  }
+
+  .pin-section .quote-sub {
+    font-size: 1.5rem;
+  }
+}
+
+@media (width <= 768px) {
+  .pin-section .card {
+    padding: 2rem 2rem;
+  }
+}
+
+@media (width <= 600px) {
+  .pin-section .card {
+    width: 300px;
+  }
+
+  .pin-section .quote-main {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+
+  .pin-section .quote-sub {
+    font-size: 1.25rem;
+    text-wrap: balance;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media (width <= 350px) {
+  .pin-section .card {
+    width: 280px;
+    padding: 2rem 1rem;
+  }
+}
