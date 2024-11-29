@@ -12,7 +12,7 @@ export default {
               <p class="quote-sub">
                 never wasting it. <span class="unquote">&#10078;</span>
               </p>
-              <a href="https://cliq.zoho.com/installapp.do?id=5905" target="_blank" class="quote-final">Get Extension 🚀</a>
+              <a href="https://cliq.zoho.com/company/870985608/installapp.do?id=6158" target="_blank" class="quote-final">Get Extension 🚀</a>
             </div>
         </section>
     `,
